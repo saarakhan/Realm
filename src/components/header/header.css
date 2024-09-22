@@ -1,0 +1,34 @@
+.header {
+    margin-top: 100px;
+    position: relative;
+}
+
+.headerTitles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+.headerTitle1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+}
+
+.headerTitle2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.headerImg {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
