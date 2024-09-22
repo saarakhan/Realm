@@ -1,0 +1,60 @@
+.top {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    font-family: "Josefin Sans", sans-serif;
+
+    display: flex;
+    align-items: center;
+}
+
+.Topleft,
+.Topright {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Topcenter {
+    flex: 6
+}
+
+.TopIcon {
+    font-size: 20px;
+    color: #444;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.TopImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.TopList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ListItem {
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.TopSearchIcon {
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    margin-left: 15px;
+}
