@@ -1,3 +1,3 @@
-# Realm - A bloggimg website
+# Realm - A blogging website
 working Frontend - React JS
 
