@@ -1,3 +1,6 @@
-# Realm - A blogging website
-working Frontend - React JS
+# Realm
 
+## A Blogging Website
+ Building Frontend with ReactJs
+
+ Project under working!!
