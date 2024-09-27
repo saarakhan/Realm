@@ -1,12 +1,16 @@
 import './App.css';
 import Topbar from './components/TopBar/Topbar';
-import Home from './pages/home/Home';
+// import SinglePost from './pages/single/Single.jsx';
+import Write from './pages/write/Write.jsx';
+import Home from './pages/home/Home.jsx';
 
 function App() {
   return (
     <>
       <Topbar />
-      <Home />
+      {/* <Home /> */}
+      {/* <SinglePost /> */}
+      <Write />
     </>
   );
 }
