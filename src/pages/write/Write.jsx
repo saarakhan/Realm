@@ -12,7 +12,7 @@ const Write = () => {
           <input type='text' placeholder='Title' className='writeInput' autoFocus={true} />
         </div>
         <div className='writeFormGroup'>
-          <textarea placeholder='Tell your story...' type='text' className='writeInput writeText'></textarea>
+          <textarea placeholder='Tell your story...' type='text' className='writeInput writeText' cols={10}></textarea>
         </div>
 
         <button className='writeSubmit'>Publish</button>

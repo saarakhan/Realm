@@ -9,7 +9,7 @@
 }
 
 .writeImg {
-    margin-left: 150px;
+    margin-left: 250px;
     width: 70vw;
     height: 350px;
     border-radius: 10px;
@@ -34,6 +34,7 @@
     font-size: 20px;
     color: rgb(109, 108, 108);
     cursor: pointer;
+    margin-left: 100px;
 }
 
 .writeInput {
@@ -48,13 +49,14 @@
 }
 
 .writeText {
+    margin-left: 100px;
     font-size: 20px;
 }
 
 .writeSubmit {
     position: absolute;
     top: 20px;
-    right: 300px;
+    right: 200px;
     color: white;
     background-color: rgb(59, 58, 58);
     border: none;
