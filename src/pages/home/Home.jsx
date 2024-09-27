@@ -1,4 +1,4 @@
-import Header from '../../components/Header/Header';
+import Header from '../../components/header/Header.jsx';
 import Posts from '../../components/posts/Posts';
 import SideBar from '../../components/sideBar/SideBar';
 import './home.css';
@@ -6,13 +6,13 @@ import './home.css';
 const Home = () => {
   return (
     <div>
-      <Header />
+      <Header/>
       <div className='home'>
         <Posts />
         <SideBar />
       </div>
     </div>
-  );
+  );  
 };
 
 export default Home;

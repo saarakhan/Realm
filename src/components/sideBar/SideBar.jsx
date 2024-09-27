@@ -1,5 +1,5 @@
 import './sideBar.css';
-import img from './profile_img.jpg';
+import img from '../../assets/profile_img.jpg';
 
 const SideBar = () => {
   return (
