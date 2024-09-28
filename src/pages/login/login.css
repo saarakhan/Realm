@@ -1,63 +1,88 @@
-.login {
-    height: 760px;
-    width: calc(100vw-50px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: url("https://cdn.prod.website-files.com/5f8476f6bb27a04244013179/5f85e56a8ce60d4909cc6c93_IMG_9877-2.jpg");
-    background-size: cover;
-    background-color: white;
-
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
 }
 
-.loginTitle {
-    font-size: 90px;
-    background-color: transparent;
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .loginForm {
-    background-color: rgba(255, 255, 255, 0.792);
-    padding: 10px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    box-shadow: 10px 5px 5px rgb(75, 75, 75);
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 400px;
+    text-align: center;
 }
 
-.loginForm>label {
-    margin: 10px 0;
-    background-color: transparent;
+.loginTitle {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #333333;
+}
 
-
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #666666;
+    font-weight: 500;
+    text-align: left;
 }
 
 .loginInput {
-    padding: 10px;
-    background-color: white;
-    border: none;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333333;
+}
+
+.loginInput:focus {
+    outline: none;
+    border-color: black;
 }
 
 .loginButton {
-    margin-top: 20px;
-    cursor: pointer;
-    background-color: lightcoral;
+    width: 100%;
+    padding: 12px;
     border: none;
+    border-radius: 4px;
+    background-color: black;
     color: white;
-    border-radius: 10px;
-    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.loginButton:hover {
+    background-color: black
 }
 
 .loginRegisterButton {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    margin-top: 20px;
-    cursor: pointer;
-    background-color: teal;
+    margin-top: 15px;
     border: none;
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
+    background: transparent;
+    cursor: pointer;
+    color: black;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.link2 {
+    color: black;
+    text-decoration: none;
+}
+
+.link2:hover {
+    text-decoration: underline;
 }

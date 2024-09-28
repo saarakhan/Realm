@@ -9,6 +9,7 @@ import Login from './pages/login/Login.jsx';
 import Register from './pages/register/Register.jsx';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Single from './pages/single/Single.jsx';
+import Contact from './pages/contact/Contact.jsx';
 
 function App() {
   const user = true;
@@ -20,6 +21,7 @@ function App() {
         <Route path='/register' Component={Register}></Route>
         <Route path='/login' Component={Login}></Route>
         <Route path='/write' Component={Write}></Route>
+        <Route path='/contact' Component={Contact}></Route>
         <Route path='/setting' Component={Settings}></Route>
         <Route path='/post/:postId' Component={Single}></Route>
       </Routes>

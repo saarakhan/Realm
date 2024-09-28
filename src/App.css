@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #F6F5F0;
 }
 
 ::selection {
@@ -21,6 +20,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #d61616a1;
+    background-color: rgb(78, 78, 78);
     border-radius: 2px;
 }

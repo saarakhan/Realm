@@ -10,11 +10,14 @@ const Login = () => {
         <input type='text' placeholder='Enter your email...' className='loginInput' />
         <label>Password</label>
         <input type='password' placeholder='Enter your password...' className='loginInput' />
-        <button className='loginButton'>Login</button>
+        <button type='submit' className='loginButton'>
+          Login
+        </button>
       </form>
-
       <button className='loginRegisterButton'>
-        <Link to='/register' className='link2'>Register</Link>
+        <Link to='/register' className='link2'>
+          Register
+        </Link>
       </button>
     </div>
   );
