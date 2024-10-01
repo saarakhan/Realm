@@ -1,71 +1,99 @@
+/* sideBar.css */
+
 .sidebar {
-    flex: 3;
-    margin: 20px;
-    padding-bottom: 30px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sidebarItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sidebarTitle {
-    margin: 10px;
-    padding: 5px;
-    width: 80%;
-    border-top: 1px solid #a7a4a4;
-    border-bottom: 1px solid #a7a4a4;
-    font-family: "Varela Round", sans-serif;
-    font-size: 12px;
-    color:#222;
-    font-weight: 600;
-    line-height: 20px;
-    text-align: center;
-}
-
-.sidebarItem > img {
-    margin-top: 15px;
-
-}
-
-.sidebarItem > p {
-    padding: 30px;
-}
-
-.sidebarList {
-    list-style: none;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+  
+  .sidebarItem {
     margin-bottom: 30px;
-    margin-left: 50px;
-}
-
-.sidebarListItem {
-    display: inline-block;
-    width: 50%;
-    margin-top: 15px;
-    cursor: pointer;
-    align-items: center;
-}
-
-.sidebarSocials {
-    margin-top: 15px;
-    width: 250px;
+  }
+  
+  .sidebarTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #343a40;
+    margin-bottom: 15px;
+    display: block;
+    text-align: center;
+    position: relative;
+  }
+  
+  .sidebarTitle::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #343a40;
+    margin: 10px auto 0;
+  }
+  
+  .sidebarImg {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 0 auto 15px;
+    display: block;
+  }
+  
+  .sideBarpara {
+    color: #6c757d;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  .sidebarList {
+    list-style-type: none;
+    padding: 0;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-}
-
-.SidebarIcon {
-    font-size: 16px;
-    margin-left: 10px;
+    gap: 10px;
+  }
+  
+  .sidebarListItem {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
     cursor: pointer;
-}
-
-.sideBarpara {
-    align-items: center;
-    margin-left: 30px;
-}
+    transition: all 0.3s ease;
+  }
+  
+  .sidebarListItem:hover {
+    background-color: #ced4da;
+    color: #212529;
+  }
+  
+  .sidebarSocials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .SidebarIcon {
+    font-size: 24px;
+    color: #6c757d;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .SidebarIcon:hover {
+    color: #343a40;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      margin-top: 30px;
+    }
+  }

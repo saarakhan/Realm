@@ -1,8 +1,25 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './Topbar.css';
 
 const Topbar = () => {
   const user = false;
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className='top'>
       <div className='Topleft'>
@@ -11,30 +28,30 @@ const Topbar = () => {
         <i className='TopIcon fa-brands fa-square-pinterest'></i>
         <i className='TopIcon fa-brands fa-square-instagram'></i>
       </div>
-      <div className='Topcenter'>
+      <div className={`Topcenter ${isOpen ? 'open' : ''}`}>
         <ul className='TopList'>
           <li className='ListItem'>
-            <Link to='/' className='link'>
+            <Link to='/' className='link' onClick={() => setIsOpen(false)}>
               HOME
             </Link>
           </li>
           <li className='ListItem'>
-            <Link to='/post/:postId' className='link'>
+            <Link to='/post/:postId' className='link' onClick={() => setIsOpen(false)}>
               ABOUT
             </Link>
           </li>
           <li className='ListItem'>
-            <Link to='/contact' className='link'>
+            <Link to='/contact' className='link' onClick={() => setIsOpen(false)}>
               CONTACT
             </Link>
           </li>
           <li className='ListItem'>
-            <Link to='/write' className='link'>
+            <Link to='/write' className='link' onClick={() => setIsOpen(false)}>
               WRITE
             </Link>
           </li>
           <li className='ListItem'>
-            <Link to='/l' className='link'>
+            <Link to='/logout' className='link' onClick={() => setIsOpen(false)}>
               {user && 'LOGOUT'}
             </Link>
           </li>
@@ -51,15 +68,19 @@ const Topbar = () => {
               </Link>
             </li>
             <li className='ListItem'>
-              {' '}
               <Link to='/register' className='link'>
                 REGISTER
               </Link>
-            </li>{' '}
+            </li>
           </ul>
         )}
-
-        <i className='TopSearchIcon fa-solid fa-magnifying-glass'></i>
+        {isMobile && (
+          <div className={`TopHamburgerIcon ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        )}
       </div>
     </div>
   );

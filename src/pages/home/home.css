@@ -1,4 +1,75 @@
-.home {
+/* home.css */
+
+body {
+    margin: 0;
+    padding: 0;
     display: flex;
-    margin-top: 300px;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.home {
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+.posts-container {
+    flex: 1 1 calc(66.666% - 20px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.post {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 250px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    flex: 1 1 calc(33.333% - 20px);
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .home {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .posts-container,
+    .sidebar {
+        flex: 1 1 100%;
+        max-width: 600px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        padding: 0 10px;
+    }
+
+    .post {
+        flex: 1 1 100%;
+    }
+}
+
+/* Smooth transition for responsive layout */
+.home,
+.posts-container,
+.post,
+.sidebar {
+    transition: all 0.3s ease;
 }

@@ -1,74 +1,134 @@
-
 .top {
-    width: 100%;
-    height: 50px;
-    position: sticky;
-    top: 0;
-    font-family: "Josefin Sans", sans-serif;
-    display: flex;
-    align-items: center;
-    z-index : 999;
-    background: radial-gradient(circle, #f9f9f9, #d1d1d1);
-
+  width: 100vw;
+  height: 50px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  font-family: 'Josefin Sans', sans-serif;
+  z-index: 999;
+ 
 }
 
 .Topleft,
 .Topright {
-    flex: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Topcenter {
-    flex: 6;
-    border-radius: 20px;
-   padding:10px;
+  flex: 6;
 }
 
 .TopIcon {
-    font-size: 20px;
-    color: #444;
-    margin-right: 20px;
-    cursor: pointer;
+  font-size: 20px;
+  margin-right: 10px;
+  color: #444;
+  cursor: pointer;
 }
 
 .TopImg {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .TopList {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .ListItem {
-    margin-right: 20px;
-    font-size: 18px;
-    font-weight: 300;
-    cursor: pointer;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
 }
 
 .TopSearchIcon {
-    font-size: 18px;
-    color: #666;
-    cursor: pointer;
-    margin-left: 15px;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  margin-left: 15px;
 }
 
-.ListItem:hover {
-    color:red;
-    transition: ease-in-out 0.3s;
-    transform: scale(1.2)
+.TopHamburgerIcon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
 }
 
-.TopIcon:hover {
-    color:red;
+.TopHamburgerIcon span {
+  width: 30px;
+  height: 3px;
+  background: #444;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+@media screen and (max-width: 768px) {
+  .Topleft, .Topright .TopList {
+    display: none;
+  }
+
+  .Topcenter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .Topcenter.open {
+    transform: translateY(0);
+  }
+
+  .TopList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ListItem {
+    margin: 15px 0;
+  }
+
+  .TopHamburgerIcon {
+    display: flex;
+  }
+
+  .TopHamburgerIcon.open span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .TopHamburgerIcon.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .TopHamburgerIcon.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
 }

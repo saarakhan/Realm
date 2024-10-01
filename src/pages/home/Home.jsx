@@ -6,13 +6,17 @@ import './home.css';
 const Home = () => {
   return (
     <div>
-      <Header/>
+      <Header />
       <div className='home'>
-        <Posts />
-        <SideBar />
+        <div className='posts'>
+          <Posts />
+        </div>
+        <div className='sidebar'>
+          <SideBar />
+        </div>
       </div>
     </div>
-  );  
+  );
 };
 
 export default Home;
