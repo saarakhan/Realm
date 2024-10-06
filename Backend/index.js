@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const { default: mongoose } = require('mongoose');
 const authRouter = require("./routes/auth");
+const userRoute = require("./routes/user");
 const app = express();
 
 dotenv.config();
@@ -17,6 +18,9 @@ mongoose.connect(process.env.MONGO_URL)
     })
 
 app.use("/api/auth", authRouter);   
+app.use("/api/user", userRoute);
+
+
 app.listen(3000, () => {
     console.log(`backend is running on ${port}`);
 })  
