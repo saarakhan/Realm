@@ -2,6 +2,6 @@
 
 ## A Blogging Website
 Completed Frontend with ReactJs
+Completed Backend with CRUD operation
 
-Now Working on Backend....
-MONGODB USER CRUD DONE
+Datconnectivity between Frontend & Backend
