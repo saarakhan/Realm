@@ -86,3 +86,47 @@ label {
 .link2:hover {
     text-decoration: underline;
 }
+
+.PasswordBtn {
+    border: none;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.PasswordBtn:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.input-container {
+    position: relative;
+}
+
+.registerInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.registerInput:focus {
+    border-color: #007bff;
+}
+
+.valid {
+    color: green;
+    position: absolute;
+    right: 10px; 
+    top: 35%;
+    transform: translateY(-50%); 
+}
+
+.invalid {
+    color: red;
+    position: absolute;
+    right: 10px; 
+    top: 35%;
+    transform: translateY(-50%); 
+}

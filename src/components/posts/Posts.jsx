@@ -1,13 +1,12 @@
-import Post from '../post/post';
+import Post from '../post/Post.jsx';
 import './Posts.css';
 
-const Posts = () => {
+const Posts = ({ post }) => {
   return (
     <div className='posts'>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      {post.map(p => {
+        return <Post  key={p._id} post={p}/>;
+      })}
     </div>
   );
 };

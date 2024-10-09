@@ -1,27 +1,23 @@
 import './post.css';
-
-const Post = () => {
+import { Link } from 'react-router-dom';
+const Post = ({ post }) => {
   return (
     <>
       <div className='post'>
-        <img className='postImg' src='https://images.pexels.com/photos/2749481/pexels-photo-2749481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='' />
+        {post.photo && <img className='postImg' src={post.photo} alt='' />}
         <div className='postInfo'>
           <div className='postCats'>
-            <span className='postCat'>Music</span>
-            <span className='postCat'>Life</span>
+            {post.categories.map(cat => {
+              return <span className='post Cat'>{cat}</span>;
+            })}
           </div>
-          <span className='postTitle'>Lorem ipsum dolor sit amet</span>
+          <Link to={`/post/${post._id}`} className='link'>
+            <span className='postTitle'>{post.title}</span>
+          </Link>
           <hr />
-          <div className='postDate'>1 hour algo</div>
+          <div className='postDate'>{new Date(post.createdAt).toDateString}</div>
         </div>
-        <p className='postDesc'>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam incidunt recusandae voluptatibus eveniet dolorem ratione unde sapiente nemo nesciunt ullam magni, illum corrupti qui. At
-          nesciunt accusamus totam aperiam dolore? Repellat quidem facere corrupti, architecto sequi dolor. Veniam asperiores autem illo vel, dicta sunt non, ipsam ipsa necessitatibus consequuntur
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam incidunt recusandae voluptatibus eveniet dolorem ratione unde sapiente nemo nesciunt ullam magni, illum corrupti qui. At
-          nesciunt accusamus totam aperiam dolore? Repellat quidem facere corrupti, architecto sequi dolor. Veniam asperiores autem illo vel, dicta sunt non, ipsam ipsa necessitatibus consequuntur
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam incidunt recusandae voluptatibus eveniet dolorem ratione unde sapiente nemo nesciunt ullam magni, illum corrupti qui. At
-          nesciunt accusamus totam aperiam dolore? Repellat quidem facere corrupti, architecto sequi dolor. Veniam asperiores autem illo vel, dicta sunt non, ipsam ipsa necessitatibus consequuntur
-        </p>
+        <p className='postDesc'>{post.desc}</p>
       </div>
     </>
   );
