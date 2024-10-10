@@ -4,21 +4,20 @@ import './Topbar.css';
 import { Context } from '../../context/Context';
 
 const Topbar = () => {
-  const user = useContext(Context);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const { user, dispatch } = useContext(Context);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+  const handleLogout = () => {
+    setShowLogoutModal(true);
+  };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const confirmLogout = () => {
+    dispatch({ type: 'LOGOUT' });
+    setShowLogoutModal(false);
+  };
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const cancelLogout = () => {
+    setShowLogoutModal(false);
   };
 
   return (
@@ -29,38 +28,47 @@ const Topbar = () => {
         <i className='TopIcon fa-brands fa-square-pinterest'></i>
         <i className='TopIcon fa-brands fa-square-instagram'></i>
       </div>
-      <div className={`Topcenter ${isOpen ? 'open' : ''}`}>
+      <div className={'Topcenter'}>
         <ul className='TopList'>
           <li className='ListItem'>
-            <Link to='/' className='link' onClick={() => setIsOpen(false)}>
+            <Link to='/' className='link'>
               HOME
             </Link>
           </li>
           <li className='ListItem'>
-            <Link to='/post/:postId' className='link' onClick={() => setIsOpen(false)}>
+            <Link to='/post/:postId' className='link'>
               ABOUT
             </Link>
           </li>
           <li className='ListItem'>
-            <Link to='/contact' className='link' onClick={() => setIsOpen(false)}>
+            <Link to='/contact' className='link'>
               CONTACT
             </Link>
           </li>
           <li className='ListItem'>
-            <Link to='/write' className='link' onClick={() => setIsOpen(false)}>
+            <Link to='/write' className='link'>
               WRITE
             </Link>
           </li>
-          <li className='ListItem'>
-            <Link to='/logout' className='link' onClick={() => setIsOpen(false)}>
-              {user && 'LOGOUT'}
-            </Link>
+          <li className='ListItem' onClick={handleLogout}>
+            {user && 'LOGOUT'}
           </li>
+          {showLogoutModal && (
+            <div className='modal'>
+              <div className='modal-content'>
+                <h3>Do you really want to log out?</h3>
+                <div>
+                  <button onClick={confirmLogout}>Yes</button>
+                  <button onClick={cancelLogout}>No</button>
+                </div>
+              </div>
+            </div>
+          )}
         </ul>
       </div>
       <div className='Topright'>
         {user ? (
-          <img className='TopImg' src='https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=600' alt='' />
+          <img className='TopImg' src={user.profilePic} alt='' />
         ) : (
           <ul className='TopList'>
             <li className='ListItem'>
@@ -74,13 +82,6 @@ const Topbar = () => {
               </Link>
             </li>
           </ul>
-        )}
-        {isMobile && (
-          <div className={`TopHamburgerIcon ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
         )}
       </div>
     </div>
