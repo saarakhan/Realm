@@ -7,10 +7,10 @@ import LoadingDots from '../LoadingDots';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 const Register = () => {
-  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [username, setUsername] = useState('');
 
   const [isUsernameValid, setIsUsernameValid] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -69,7 +69,7 @@ const Register = () => {
 
         <label>Password</label>
         <div className='input-container'>
-          <PasswordShow placeholder='Enter your password...' onChange={handlePasswordChange} />
+          <PasswordShow onChange={handlePasswordChange} />
           {isPasswordValid ? <FaCheckCircle className='valid' /> : <FaTimesCircle className='invalid' />}
         </div>
 

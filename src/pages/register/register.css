@@ -130,3 +130,9 @@ label {
     top: 35%;
     transform: translateY(-50%); 
 }
+
+.error {
+    margin: 10px;
+    color:red;
+    font-weight: bold;
+}

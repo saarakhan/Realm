@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './Topbar.css';
+import { Context } from '../../context/Context';
 
 const Topbar = () => {
-  const user = false;
+  const user = useContext(Context);
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 

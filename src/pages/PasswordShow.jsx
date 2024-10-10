@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const PasswordShow = ({ placeholder, onChange }) => {
+const PasswordShow = ({ onChange}) => {
   const [showPass, setShowPass] = useState(false);
 
   const handlePassword = () => {

@@ -68,6 +68,10 @@ label {
     background-color: black
 }
 
+.loginButton:disabled {
+    cursor: not-allowed;
+}
+
 .loginRegisterButton {
     margin-top: 15px;
     border: none;
@@ -85,4 +89,21 @@ label {
 
 .link2:hover {
     text-decoration: underline;
+}
+
+.input-container {
+    position: relative;
+}
+
+.loginInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.loginInput:focus {
+    border-color: #007bff;
 }
