@@ -33,7 +33,9 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      'no-vars-unused': 'none'
+      'no-vars-unused': 'none',
+      'react/prop-types': 'off',
+      'react/jsx-key': 'warn',
     },
   },
 ]

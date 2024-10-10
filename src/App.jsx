@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Topbar from './components/topBar/Topbar.jsx';
 import Header from './components/header/Header.jsx';
@@ -7,27 +8,26 @@ import Home from './pages/home/Home.jsx';
 import Settings from './pages/setting/Setting.jsx';
 import Login from './pages/login/Login.jsx';
 import Register from './pages/register/Register.jsx';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Single from './pages/single/Single.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Contact from './pages/contact/Contact.jsx';
 import { Context } from './context/Context.jsx';
 import { useContext } from 'react';
 
 function App() {
-  const user = useContext(Context);
+  const { user } = useContext(Context);
   return (
-      <Router>
-        <Topbar />
-        <Routes>
-          <Route path='/' Component={user ? Home : Register}></Route>
-          <Route path='/register' Component={user ? Home : Register}></Route>
-          <Route path='/login' Component={user ? Home : Login}></Route>
-          <Route path='/write' Component={user ? Write : Register}></Route>
-          <Route path='/contact' Component={user ? Contact : Register}></Route>
-          <Route path='/setting' Component={user ? Settings : Register}></Route>
-          <Route path='/post/:postId' Component={Single}></Route>
-        </Routes>
-      </Router>
+    <Router>
+      <Topbar />
+      <Routes>
+        <Route path='/' element={user ? <Home /> : <Register />} />
+        <Route path='/register' element={user ? <Home /> : <Register />} />
+        <Route path='/login' element={user ? <Home /> : <Login />} />
+        <Route path='/write' element={user ? <Write /> : <Register />} />
+        <Route path='/contact' element={user ? <Contact /> : <Register />} />
+        <Route path='/setting' element={user ? <Settings /> : <Register />} />
+        <Route path='/post/:postId' element={user ? <SinglePost /> : <Register />} />
+      </Routes>
+    </Router>
   );
 }
 

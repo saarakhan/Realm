@@ -19,7 +19,9 @@ const Login = () => {
         password: passwordRef.current.value,
       });
       dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
+      window.location.replace('/');
     } catch (err) {
+      console.error("Error response:", err.response?.data);
       dispatch({ type: 'LOGIN_FAILURE' });
     }
   };
@@ -39,7 +41,7 @@ const Login = () => {
         </div>
 
         <button className='loginButton' type='submit' disabled={isFetching}>
-          {isFetching?'loading..':'Login'}
+          {isFetching ? 'loading..' : 'Login'}
         </button>
       </form>
 
