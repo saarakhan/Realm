@@ -1,10 +1,14 @@
 import './sideBar.css';
-import img from '../../assets/profile_img.jpg';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Context } from '../../context/Context';
 
 const SideBar = () => {
+  const { user } = useContext(Context);
+  console.log(user.desc);
+  const PF = 'http://localhost:3000/images/';
+  console.log(user);
   const [cat, setCat] = useState([]);
   useEffect(() => {
     const fetchCat = async () => {
@@ -18,17 +22,17 @@ const SideBar = () => {
     <div className='sidebar'>
       <div className='sidebarItem'>
         <span className='sidebarTitle'>ABOUT ME</span>
-        <img className='sidebarImg' src={img} height='250px' />
-        <p className='sideBarpara'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quidem officia ratione perferendis optio atque,</p>
+        <img src={PF + user.profilePic} className='sidebarImg' height='250px'  />
+        <p className='sideBarpara'>{user.desc}</p>
       </div>
       <div className='sidebarItem'>
         <span className='sidebarTitle'>CATEGORIES</span>
         <ul className='sidebarList'>
           {cat.map(c => (
             <Link to={`/?cat=${c.name}`} className='link'>
-            <li key={c._id} className='sidebarListItem'>
-              {c.name}
-            </li>
+              <li key={c._id} className='sidebarListItem'>
+                {c.name}
+              </li>
             </Link>
           ))}
         </ul>

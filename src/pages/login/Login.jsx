@@ -45,6 +45,7 @@ const Login = () => {
         username,
         password,
       });
+      console.log(res);
       dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
       window.location.replace('/');
     } catch (err) {
@@ -59,7 +60,12 @@ const Login = () => {
       <form className='loginForm' onSubmit={handleSubmit}>
         <span className='loginTitle'>Login</span>
 
-        {error && <span className='errorMessage'>{error}</span>}
+        {error && (
+          
+          <p className='errorMessage' style={{ 'margin': '10px' , 'color':'red'}}>
+            {error}
+          </p>
+        )}
 
         <label>Username</label>
         <div className='input-container'>

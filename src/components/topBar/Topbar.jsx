@@ -6,6 +6,7 @@ import { Context } from '../../context/Context';
 const Topbar = () => {
   const { user, dispatch } = useContext(Context);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const PF = 'http://localhost:3000/images/';
 
   const handleLogout = () => {
     setShowLogoutModal(true);
@@ -31,7 +32,7 @@ const Topbar = () => {
       <div className={'Topcenter'}>
         <ul className='TopList'>
           <li className='ListItem '>
-            <Link to='/' className='link' >
+            <Link to='/' className='link'>
               HOME
             </Link>
           </li>
@@ -40,12 +41,7 @@ const Topbar = () => {
               ABOUT
             </Link>
           </li>
-          <li className='ListItem'>
-            <Link to='/contact' className='link'>
-              CONTACT
-            </Link>
-          </li>
-          <li className='ListItem'>
+            <li className='ListItem'>
             <Link to='/write' className='link'>
               WRITE
             </Link>
@@ -68,7 +64,9 @@ const Topbar = () => {
       </div>
       <div className='Topright'>
         {user ? (
-          <img className='TopImg' src={user.profilePic} alt='' />
+          <Link to="/setting">
+            <img className='TopImg' src={PF+user.profilePic} alt='' />
+          </Link>
         ) : (
           <ul className='TopList'>
             <li className='ListItem'>
