@@ -30,8 +30,8 @@ const Topbar = () => {
       </div>
       <div className={'Topcenter'}>
         <ul className='TopList'>
-          <li className='ListItem'>
-            <Link to='/' className='link'>
+          <li className='ListItem '>
+            <Link to='/' className='link' >
               HOME
             </Link>
           </li>

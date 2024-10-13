@@ -1,12 +1,13 @@
-.posts {
-    flex:9;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px;
-    justify-content: center;
-    align-items: center;
-    gap:10px;
+.postsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px;
 }
 
+@media (max-width: 768px) {
+    .postsContainer {
+        grid-template-columns: 1fr;
+    }
 
-
+}

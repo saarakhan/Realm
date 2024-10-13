@@ -7,12 +7,14 @@ const postRoute = require("./routes/post");
 const categoryRoute = require("./routes/category");
 const multer = require("multer");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 app.use(cors());
 
 dotenv.config();
 app.use(express.json()) // to accept json data
+app.use("/images", express.static(path.join(__dirname, "/images")));
 
 const port = 3000;
 

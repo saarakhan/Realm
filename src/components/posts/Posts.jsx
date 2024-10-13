@@ -3,7 +3,7 @@ import './Posts.css';
 
 const Posts = ({ post }) => {
   return (
-    <div className='posts'>
+    <div className='postsContainer'>
       {post.map(p => {
         return <Post  key={p._id} post={p}/>;
       })}
