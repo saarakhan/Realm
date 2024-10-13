@@ -23,7 +23,6 @@ const Home = () => {
       <Header />
       <div className='home'>
         <Posts post={post} />
-        <SideBar />
       </div>
     </div>
   );
