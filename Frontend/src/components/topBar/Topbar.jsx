@@ -4,10 +4,9 @@ import './Topbar.css';
 import { Context } from '../../context/Context';
 
 const Topbar = () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
   const { user, dispatch } = useContext(Context);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const PF = `${apiUrl}/api/images/`;
+  const PF = 'http://localhost:3000/images/';
 
   const handleLogout = () => {
     setShowLogoutModal(true);
@@ -21,7 +20,6 @@ const Topbar = () => {
   const cancelLogout = () => {
     setShowLogoutModal(false);
   };
-
   return (
     <div className='top'>
       <div className='Topleft'>

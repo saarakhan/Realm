@@ -4,7 +4,6 @@ import axios from 'axios';
 import { Context } from '../../context/Context';
 import { v4 as uuidv4 } from 'uuid';
 const Write = () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
   const [file, setFile] = useState('');
@@ -24,13 +23,13 @@ const Write = () => {
       data.append('file', file);
       newPost.photo = fileName;
         try {
-          await axios.post(`${apiUrl}/api/upload`, data);
+          await axios.post('http://localhost:3000//api/upload', data);
         } catch (err) {
           console.log(err);
         }
     }
     try {
-      const res = await axios.post(`${apiUrl}/api/post`, newPost);
+      const res = await axios.post('http://localhost:3000//api/post' ,newPost);
       window.location.replace('/post/' + res.data._id);
     } catch (err) {
       console.log(err);

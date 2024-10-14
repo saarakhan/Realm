@@ -7,7 +7,7 @@ import axios from 'axios';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 const Login = () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
+ 
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -43,7 +43,7 @@ const Login = () => {
     }
     dispatch({ type: 'LOGIN_START' });
     try {
-      const res = await axios.post(`${apiUrl}/api/auth/login`, {
+      const res = await axios.post('http://localhost:3000/api/auth/login', {
         username,
         password,
       });

@@ -7,7 +7,6 @@ import LoadingDots from '../LoadingDots';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 const Register = () => {
-  // const apiUrl = process.env.REACT_APP_API_URL;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);

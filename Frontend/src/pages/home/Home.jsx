@@ -7,13 +7,12 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 
 const Home = () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
   const [post, setPost] = useState([]);
   const { search } = useLocation(); // Location hook to get the search params
 
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await axios.get(`${apiUrl}/api/post` + search);
+      const res = await axios.get('http://localhost:3000/api/post' + search);
       setPost(res.data);
     };
     fetchPost();

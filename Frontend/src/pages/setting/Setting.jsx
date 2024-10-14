@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
 const Setting = () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
   const { user, dispatch } = useContext(Context);
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState(user.username);
@@ -14,11 +13,11 @@ const Setting = () => {
   const [password, setPassword] = useState('');
   const [desc, setDesc] = useState('');
   const [update, setUpdate] = useState(false);
-  const PF = `${apiUrl}/images/`;
+  const PF = 'http://localhost:3000/images';
 
-  const handleOk = async e=>{
-    setUpdate(false)
-  }
+  const handleOk = async e => {
+    setUpdate(false);
+  };
   const handleSubmit = async e => {
     e.preventDefault();
     dispatch({ type: 'UPDATED_START' });
@@ -37,24 +36,21 @@ const Setting = () => {
       data.append('file', file);
       updateUser.profilePic = fileName;
       try {
-        await axios.post(`${apiUrl}/api/upload`, data);
+        await axios.post('http://localhost:3000/api/upload', data);
       } catch (err) {
         console.log(err);
       }
     }
 
     try {
-      console.log(user);
-      const res = await axios.put(`${apiUrl}/api/user` + user._id, updateUser);
-      console.log(res.data);
+      const res = await axios.put('http://localhost:3000/api/user/' + user._id, updateUser);
       setUpdate(true);
       dispatch({ type: 'UPDATED_SUCCESS', payload: res.data });
-
-     
     } catch (err) {
       dispatch({ type: 'UPDATED_FAILURE' });
       console.log(err);
     }
+    console.log(PF + user.profilePic);
   };
 
   return (
