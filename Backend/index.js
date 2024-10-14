@@ -12,7 +12,7 @@ const path = require("path");
 const app = express();
 app.use(cors(
     {
-        origin: ["https://realm-api-nine.vercel.app/?vercelToolbarCode=hefGgEyC00peUv2"],
+        origin: ["https://realm-api-nine.vercel.app/"],
         methods: ["POST", "GET"],
         credentials: true
     }
