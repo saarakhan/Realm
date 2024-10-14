@@ -10,7 +10,13 @@ const cors = require("cors");
 const path = require("path");
 
 const app = express();
-app.use(cors());
+app.use(cors(
+    {
+        origin:[""],
+        methods:["POST", "GET"],
+        credentials:true
+    }
+));
 
 dotenv.config();
 app.use(express.json()) // to accept json data
