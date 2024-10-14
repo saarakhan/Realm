@@ -10,14 +10,14 @@ const cors = require("cors");
 const path = require("path");
 
 const app = express();
-app.use(cors(
-    {
-        origin: ["https://realm-api-nine.vercel.app/"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-));
-// app.use(cors()); 
+// app.use(cors(
+//     {
+//         origin: ["https://realm-api-nine.vercel.app/"],
+//         methods: ["POST", "GET"],
+//         credentials: true
+//     }
+// ));
+app.use(cors()); 
 dotenv.config();
 app.use(express.json()) // to accept json data
 app.use("/images", express.static(path.join(__dirname, "/images")));
