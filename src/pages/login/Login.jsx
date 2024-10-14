@@ -4,9 +4,12 @@ import './login.css';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/Context';
 import axios from 'axios';
+const dotenv = require('dotenv');
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 const Login = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isUsernameValid, setIsUsernameValid] = useState(false);
@@ -41,7 +44,7 @@ const Login = () => {
     }
     dispatch({ type: 'LOGIN_START' });
     try {
-      const res = await axios.post('http://localhost:3000/api/auth/login', {
+      const res = await axios.post(`${apiUrl}/api/auth/login`, {
         username,
         password,
       });
@@ -61,8 +64,7 @@ const Login = () => {
         <span className='loginTitle'>Login</span>
 
         {error && (
-          
-          <p className='errorMessage' style={{ 'margin': '10px' , 'color':'red'}}>
+          <p className='errorMessage' style={{ margin: '10px', color: 'red' }}>
             {error}
           </p>
         )}

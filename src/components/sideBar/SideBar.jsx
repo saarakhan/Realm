@@ -3,8 +3,11 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/Context';
+const dotenv = require('dotenv');
 
 const SideBar = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   const { user } = useContext(Context);
   console.log(user.desc);
   const PF = 'http://localhost:3000/images/';
@@ -12,7 +15,7 @@ const SideBar = () => {
   const [cat, setCat] = useState([]);
   useEffect(() => {
     const fetchCat = async () => {
-      const res = await axios.get('http://localhost:3000/api/category');
+      const res = await axios.get(`${apiUrl}/api/category`);
       setCat(res.data);
     };
     fetchCat();

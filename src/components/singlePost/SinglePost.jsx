@@ -3,8 +3,10 @@ import './singlePost.css';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Context } from '../../context/Context';
+const dotenv = require('dotenv');
 
 const singlePost = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
   const location = useLocation();
   const path = location.pathname.split('/')[2]; //post id
   const [post, setPost] = useState([]);
@@ -19,7 +21,7 @@ const singlePost = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get('http://localhost:3000/api/post/' + path);
+      const res = await axios.get(`${apiUrl}/api/post` + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -29,7 +31,7 @@ const singlePost = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete('http://localhost:3000/api/post/' + path, { data: { username: user.username } });
+      await axios.delete(`${apiUrl}/api/post` + path, { data: { username: user.username } });
       setDel(true);
       setTimeout(() => {
         window.location.replace('/');
@@ -40,7 +42,7 @@ const singlePost = () => {
   };
   const handleUpdate = async () => {
     try {
-      await axios.put('http://localhost:3000/api/post/' + path, { username: user.username, title, desc });
+      await axios.put(`${apiUrl}/api/post` + path, { username: user.username, title, desc });
       setUpdate(true);
       setTimeout(() => {
         window.location.reload();

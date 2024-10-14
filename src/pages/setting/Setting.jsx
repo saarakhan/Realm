@@ -4,8 +4,9 @@ import { useContext, useEffect, useState } from 'react';
 import { Context } from '../../context/Context';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-
+const dotenv = require('dotenv');
 const Setting = () => {
+  
   const { user, dispatch } = useContext(Context);
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState(user.username);
@@ -36,7 +37,7 @@ const Setting = () => {
       data.append('file', file);
       updateUser.profilePic = fileName;
       try {
-        await axios.post('http://localhost:3000/api/upload', data);
+        await axios.post(`${apiUrl}/api/upload`, data);
       } catch (err) {
         console.log(err);
       }
@@ -44,7 +45,7 @@ const Setting = () => {
 
     try {
       console.log(user);
-      const res = await axios.put('http://localhost:3000/api/user/' + user._id, updateUser);
+      const res = await axios.put(`${apiUrl}/api/user` + user._id, updateUser);
       console.log(res.data);
       setUpdate(true);
       dispatch({ type: 'UPDATED_SUCCESS', payload: res.data });

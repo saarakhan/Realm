@@ -12,12 +12,12 @@ const path = require("path");
 const app = express();
 app.use(cors(
     {
-        origin:[""],
-        methods:["POST", "GET"],
-        credentials:true
+        origin: ["https://realm-api-nine.vercel.app/?vercelToolbarCode=hefGgEyC00peUv2"],
+        methods: ["POST", "GET"],
+        credentials: true
     }
 ));
-
+// app.use(cors());
 dotenv.config();
 app.use(express.json()) // to accept json data
 app.use("/images", express.static(path.join(__dirname, "/images")));
@@ -41,7 +41,7 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({storage: storage});
+const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
     res.status(200).json("File has been uploaded!")
 })
