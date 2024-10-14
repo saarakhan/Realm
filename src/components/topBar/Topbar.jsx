@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import './Topbar.css';
 import { Context } from '../../context/Context';
+const dotenv = require('dotenv');
 
 const Topbar = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
   const { user, dispatch } = useContext(Context);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const PF = 'http://localhost:3000/images/';
+  const PF = `${apiUrl}/api/images/`;
 
   const handleLogout = () => {
     setShowLogoutModal(true);
@@ -41,7 +43,7 @@ const Topbar = () => {
               ABOUT
             </Link>
           </li>
-            <li className='ListItem'>
+          <li className='ListItem'>
             <Link to='/write' className='link'>
               WRITE
             </Link>
@@ -64,8 +66,8 @@ const Topbar = () => {
       </div>
       <div className='Topright'>
         {user ? (
-          <Link to="/setting">
-            <img className='TopImg' src={PF+user.profilePic} alt='' />
+          <Link to='/setting'>
+            <img className='TopImg' src={PF + user.profilePic} alt='' />
           </Link>
         ) : (
           <ul className='TopList'>

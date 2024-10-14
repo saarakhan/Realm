@@ -10,7 +10,7 @@ const singlePost = () => {
   const location = useLocation();
   const path = location.pathname.split('/')[2]; //post id
   const [post, setPost] = useState([]);
-  const PF = 'http://localhost:3000/images/';
+  const PF = `${apiUrl}/api/images/`;
   const { user } = useContext(Context);
   const [del, setDel] = useState(false);
   // update

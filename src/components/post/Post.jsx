@@ -1,7 +1,7 @@
 import './post.css';
 import { Link } from 'react-router-dom';
 const Post = ({ post }) => {
-  const PF = 'http://localhost:3000/images/';
+  const PF = `${apiUrl}/api/images/`;
   return (
     <>
       <div className='post'>

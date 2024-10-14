@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 const dotenv = require('dotenv');
 const Setting = () => {
-  
+  const apiUrl = process.env.REACT_APP_API_URL;
   const { user, dispatch } = useContext(Context);
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState(user.username);
@@ -14,7 +14,7 @@ const Setting = () => {
   const [password, setPassword] = useState('');
   const [desc, setDesc] = useState('');
   const [update, setUpdate] = useState(false);
-  const PF = 'http://localhost:3000/images/';
+  const PF = `${apiUrl}/images/`;
 
   const handleOk = async e=>{
     setUpdate(false)
