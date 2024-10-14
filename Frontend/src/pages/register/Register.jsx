@@ -7,7 +7,7 @@ import LoadingDots from '../LoadingDots';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 const Register = () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
+  // const apiUrl = process.env.REACT_APP_API_URL;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ const Register = () => {
     setLoading(true);
     setError(false);
     try {
-      const res = await axios.post(`${apiUrl}/api/auth/register`, {
+      const res = await axios.post('http://localhost:3000/api/auth/register', {
         username,
         email,
         password,
