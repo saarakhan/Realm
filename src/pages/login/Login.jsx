@@ -4,7 +4,6 @@ import './login.css';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/Context';
 import axios from 'axios';
-const dotenv = require('dotenv');
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 const Login = () => {

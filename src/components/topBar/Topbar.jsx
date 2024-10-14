@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import './Topbar.css';
 import { Context } from '../../context/Context';
-const dotenv = require('dotenv');
 
 const Topbar = () => {
   const apiUrl = process.env.REACT_APP_API_URL;

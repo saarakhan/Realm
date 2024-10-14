@@ -3,7 +3,6 @@ import './singlePost.css';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Context } from '../../context/Context';
-const dotenv = require('dotenv');
 
 const singlePost = () => {
   const apiUrl = process.env.REACT_APP_API_URL;

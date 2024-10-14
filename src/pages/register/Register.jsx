@@ -5,7 +5,6 @@ import PasswordShow from '../PasswordShow';
 import axios from 'axios';
 import LoadingDots from '../LoadingDots';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
-const dotenv = require('dotenv');
 
 const Register = () => {
   const apiUrl = process.env.REACT_APP_API_URL;

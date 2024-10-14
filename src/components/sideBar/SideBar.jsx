@@ -3,7 +3,6 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/Context';
-const dotenv = require('dotenv');
 
 const SideBar = () => {
   const apiUrl = process.env.REACT_APP_API_URL;

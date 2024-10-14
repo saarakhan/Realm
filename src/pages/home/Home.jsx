@@ -5,7 +5,6 @@ import SideBar from '../../components/sideBar/SideBar';
 import './home.css';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
-const dotenv = require('dotenv');
 
 const Home = () => {
   const apiUrl = process.env.REACT_APP_API_URL;

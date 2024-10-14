@@ -3,7 +3,6 @@ import './write.css';
 import axios from 'axios';
 import { Context } from '../../context/Context';
 import { v4 as uuidv4 } from 'uuid';
-const dotenv = require('dotenv');
 const Write = () => {
   const apiUrl = process.env.REACT_APP_API_URL;
   const [title, setTitle] = useState('');

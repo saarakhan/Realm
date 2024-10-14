@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Context } from '../../context/Context';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-const dotenv = require('dotenv');
+
 const Setting = () => {
   const apiUrl = process.env.REACT_APP_API_URL;
   const { user, dispatch } = useContext(Context);
