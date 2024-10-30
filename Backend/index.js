@@ -41,7 +41,10 @@ app.use("/api/auth", authRouter);
 app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
 app.use("/api/category", categoryRoute);
-
+app.get("/", (req, res) => {
+    app.use(express.static(path.resolve(__dirname, "Frontend", "dist")));
+    res.sendFile(path.resolve(__dirname, "Frontend", "dist", "index.html"));
+});
 
 app.listen(3000, () => {
     console.log(`backend is running on ${port}`);
