@@ -7,7 +7,7 @@ const Topbar = () => {
   const { user, dispatch } = useContext(Context);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const PF = 'http://localhost:3000/images/';
-
+  console.log('profile pic = ' + user.profilePic);
   const handleLogout = () => {
     setShowLogoutModal(true);
   };
@@ -64,7 +64,15 @@ const Topbar = () => {
       <div className='Topright'>
         {user ? (
           <Link to='/setting'>
-            <img className='TopImg' src={PF + user.profilePic} alt='' />
+            <img
+              className='TopImg'
+              src={
+                user.profilePic && user.profilePic.trim() !== ''
+                  ? PF + user.profilePic
+                  : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8QATbxHgFvoPhdxKFIcSQragjLC6BcCo9FiU0koLh0FGzL3FocfsauUs53dAHfKCecaA&usqp=CAU'
+              }
+              alt={user.profilePic ? 'User Profile' : 'Default Avatar'}
+            />
           </Link>
         ) : (
           <ul className='TopList'>

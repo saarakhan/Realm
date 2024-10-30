@@ -20,7 +20,16 @@ const SideBar = () => {
     <div className='sidebar'>
       <div className='sidebarItem'>
         <span className='sidebarTitle'>ABOUT ME</span>
-        <img src={PF + user.profilePic} className='sidebarImg' height='250px' />
+        <img
+          className='sidebarImg'
+          height='250px'
+          src={
+            user.profilePic && user.profilePic.trim() !== ''
+              ? PF + user.profilePic
+              : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8QATbxHgFvoPhdxKFIcSQragjLC6BcCo9FiU0koLh0FGzL3FocfsauUs53dAHfKCecaA&usqp=CAU'
+          }
+          alt={user.profilePic ? 'User Profile' : 'Default Avatar'}
+        />
         <p className='sideBarpara'>{user.desc}</p>
       </div>
       <div className='sidebarItem'>
