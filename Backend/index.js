@@ -14,7 +14,7 @@ app.use(cors());
 dotenv.config();
 app.use(express.json()) // to accept json data
 app.use("/images", express.static(path.join(__dirname, "/images")));
-const port = process.env.PORT || 1000;
+const port = 1000;
 
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
