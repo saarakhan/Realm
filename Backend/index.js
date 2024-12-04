@@ -14,7 +14,7 @@ app.use(cors());
 dotenv.config();
 app.use(express.json()) // to accept json data
 app.use("/images", express.static(path.join(__dirname, "/images")));
-const port = 3000;
+const port = 1000;
 
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
@@ -46,6 +46,6 @@ app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "Frontend", "dist", "index.html"));
 });
 
-app.listen(3000, () => {
+app.listen(1000, () => {
     console.log(`backend is running on ${port}`);
 })  
